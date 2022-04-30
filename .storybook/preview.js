@@ -1,6 +1,6 @@
 import Vue from 'vue'
 // 手动注册 各种 antd 组件
-import { Form, Input, Select, Button, Card, Row, Col, Table, Icon } from 'ant-design-vue'
+import { Form, Input, Select, Button, Card, Row, Col, Table, Icon, Tag } from 'ant-design-vue'
 // 手动引入 antd global.less
 import '../src/global.less'
 
@@ -15,6 +15,7 @@ Vue.component(Row.name, Row)
 Vue.component(Col.name, Col)
 Vue.component(Table.name, Table)
 Vue.component(Icon.name, Icon)
+Vue.component(Tag.name, Tag)
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
