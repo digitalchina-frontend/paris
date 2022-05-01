@@ -1,7 +1,3 @@
-<template>
-  <a-table :columns="columns" :data-source="data"></a-table>
-</template>
-
 <script>
 export default {
   name: 'DcTable',
@@ -15,8 +11,8 @@ export default {
       default: () => [],
     },
   },
-  data() {
-    return {}
+  render() {
+    return <a-table columns={this.columns} data-source={this.data}></a-table>
   },
 }
 </script>
