@@ -1,5 +1,5 @@
 <template>
-  <a-table :columns="columns" :data-source="data"> </a-table>
+  <a-table :columns="columns" :data-source="data"></a-table>
 </template>
 
 <script>
