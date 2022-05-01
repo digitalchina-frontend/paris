@@ -63,15 +63,15 @@
 <script>
 export default {
   name: 'Step1',
-  data () {
+  data() {
     return {
       labelCol: { lg: { span: 5 }, sm: { span: 5 } },
       wrapperCol: { lg: { span: 19 }, sm: { span: 19 } },
-      form: this.$form.createForm(this)
+      form: this.$form.createForm(this),
     }
   },
   methods: {
-    nextStep () {
+    nextStep() {
       const { form: { validateFields } } = this
       // 先校验，通过表单校验后，才进入下一步
       validateFields((err, values) => {
@@ -79,8 +79,8 @@ export default {
           this.$emit('nextStep')
         }
       })
-    }
-  }
+    },
+  },
 }
 </script>
 

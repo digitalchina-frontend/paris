@@ -169,53 +169,53 @@ import { PERMISSION_ENUM } from '@/core/permission/permission'
 
 const STATUS = {
   1: '启用',
-  2: '禁用'
+  2: '禁用',
 }
 
 const columns = [
   {
     title: '唯一识别码',
-    dataIndex: 'id'
+    dataIndex: 'id',
   },
   {
     title: '角色名称',
-    dataIndex: 'name'
+    dataIndex: 'name',
   },
   {
     title: '状态',
     dataIndex: 'status',
-    scopedSlots: { customRender: 'status' }
+    scopedSlots: { customRender: 'status' },
   },
   {
     title: '创建时间',
     dataIndex: 'createTime',
     scopedSlots: { customRender: 'createTime' },
-    sorter: true
+    sorter: true,
   }, {
     title: '操作',
     width: '150px',
     dataIndex: 'action',
-    scopedSlots: { customRender: 'action' }
-  }
+    scopedSlots: { customRender: 'action' },
+  },
 ]
 
 export default {
   name: 'TableList',
   components: {
-    STable
+    STable,
   },
-  data () {
+  data() {
     return {
       description: '列表使用场景：后台管理中的权限管理以及角色管理，可用于基于 RBAC 设计的角色权限控制，颗粒度细到每一个操作类型。',
 
       visible: false,
       labelCol: {
         xs: { span: 24 },
-        sm: { span: 5 }
+        sm: { span: 5 },
       },
       wrapperCol: {
         xs: { span: 24 },
-        sm: { span: 16 }
+        sm: { span: 16 },
       },
       form: this.$form.createForm(this),
       permissions: [],
@@ -239,19 +239,19 @@ export default {
 
       expandedRowKeys: [],
       selectedRowKeys: [],
-      selectedRows: []
+      selectedRows: [],
     }
   },
   filters: {
-    statusFilter (key) {
+    statusFilter(key) {
       return STATUS[key]
     },
-    permissionFilter (key) {
+    permissionFilter(key) {
       const permission = PERMISSION_ENUM[key]
       return permission && permission.label
-    }
+    },
   },
-  created () {
+  created() {
     getServiceList().then(res => {
       console.log('getServiceList.call()', res)
     })
@@ -261,7 +261,7 @@ export default {
     })
   },
   methods: {
-    handleEdit (record) {
+    handleEdit(record) {
       this.visible = true
       console.log('record', record)
 
@@ -273,12 +273,12 @@ export default {
           return {
             label: action.describe,
             value: action.action,
-            defaultCheck: action.defaultCheck
+            defaultCheck: action.defaultCheck,
           }
         })
         return {
           ...permission,
-          actionsOptions
+          actionsOptions,
         }
       })
 
@@ -290,17 +290,17 @@ export default {
         this.form.setFieldsValue(checkboxGroup)
       })
     },
-    handleOk (e) {
+    handleOk(e) {
       e.preventDefault()
       this.form.validateFields((err, values) => {
         console.log(err, values)
       })
     },
-    onChange (selectedRowKeys, selectedRows) {
+    onChange(selectedRowKeys, selectedRows) {
       this.selectedRowKeys = selectedRowKeys
       this.selectedRows = selectedRows
     },
-    handleExpand (expanded, record) {
+    handleExpand(expanded, record) {
       console.log('expanded', expanded, record)
       if (expanded) {
         this.expandedRowKeys.push(record.id)
@@ -308,9 +308,9 @@ export default {
         this.expandedRowKeys = this.expandedRowKeys.filter(item => record.id !== item)
       }
     },
-    toggleAdvanced () {
+    toggleAdvanced() {
       this.advanced = !this.advanced
-    }
+    },
   },
   watch: {
     /*
@@ -325,7 +325,7 @@ export default {
         })
       }
       */
-  }
+  },
 }
 </script>
 

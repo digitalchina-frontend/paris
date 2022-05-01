@@ -13,7 +13,7 @@ import account from './zh-CN/account'
 const components = {
   antLocale: antd,
   momentName: 'zh-cn',
-  momentLocale: momentCN
+  momentLocale: momentCN,
 }
 
 export default {
@@ -30,5 +30,5 @@ export default {
   ...dashboard,
   ...form,
   ...result,
-  ...account
+  ...account,
 }

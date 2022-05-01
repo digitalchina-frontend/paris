@@ -57,5 +57,5 @@ export default {
   'form.basic-form.password.placeholder': 'Password',
   'form.basic-form.confirm-password.placeholder': 'Confirm password',
   'form.basic-form.phone-number.placeholder': 'Phone number',
-  'form.basic-form.verification-code.placeholder': 'Verification code'
+  'form.basic-form.verification-code.placeholder': 'Verification code',
 }

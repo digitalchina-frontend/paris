@@ -3,7 +3,7 @@ import Item from './Item'
 
 export {
   AvatarList,
-  Item as AvatarListItem
+  Item as AvatarListItem,
 }
 
 export default AvatarList

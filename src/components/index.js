@@ -52,5 +52,5 @@ export {
   StandardFormRow,
   ArticleListContent,
 
-  Dialog
+  Dialog,
 }

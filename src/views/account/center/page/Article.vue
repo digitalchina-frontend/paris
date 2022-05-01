@@ -38,35 +38,35 @@ export default {
   name: 'Article',
   components: {
     IconText,
-    ArticleListContent
+    ArticleListContent,
   },
-  data () {
+  data() {
     return {
       loading: true,
       loadingMore: false,
-      data: []
+      data: [],
     }
   },
-  mounted () {
+  mounted() {
     this.getList()
   },
   methods: {
-    getList () {
+    getList() {
       this.$http.get('/list/article').then(res => {
         console.log('res', res)
         this.data = res.result
         this.loading = false
       })
     },
-    loadMore () {
+    loadMore() {
       this.loadingMore = true
       this.$http.get('/list/article').then(res => {
         this.data = this.data.concat(res.result)
       }).finally(() => {
         this.loadingMore = false
       })
-    }
-  }
+    },
+  },
 }
 </script>
 

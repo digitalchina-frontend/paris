@@ -104,26 +104,26 @@ const levelNames = {
   0: 'user.password.strength.short',
   1: 'user.password.strength.low',
   2: 'user.password.strength.medium',
-  3: 'user.password.strength.strong'
+  3: 'user.password.strength.strong',
 }
 const levelClass = {
   0: 'error',
   1: 'error',
   2: 'warning',
-  3: 'success'
+  3: 'success',
 }
 const levelColor = {
   0: '#ff0000',
   1: '#ff0000',
   2: '#ff7e05',
-  3: '#52c41a'
+  3: '#52c41a',
 }
 export default {
   name: 'Register',
   components: {
   },
   mixins: [deviceMixin],
-  data () {
+  data() {
     return {
       form: this.$form.createForm(this),
 
@@ -134,24 +134,24 @@ export default {
         passwordLevel: 0,
         passwordLevelChecked: false,
         percent: 10,
-        progressColor: '#FF0000'
+        progressColor: '#FF0000',
       },
-      registerBtn: false
+      registerBtn: false,
     }
   },
   computed: {
-    passwordLevelClass () {
+    passwordLevelClass() {
       return levelClass[this.state.passwordLevel]
     },
-    passwordLevelName () {
+    passwordLevelName() {
       return levelNames[this.state.passwordLevel]
     },
-    passwordLevelColor () {
+    passwordLevelColor() {
       return levelColor[this.state.passwordLevel]
-    }
+    },
   },
   methods: {
-    handlePasswordLevel (rule, value, callback) {
+    handlePasswordLevel(rule, value, callback) {
       if (value === '') {
        return callback()
       }
@@ -176,7 +176,7 @@ export default {
       callback()
     },
 
-    handlePasswordCheck (rule, value, callback) {
+    handlePasswordCheck(rule, value, callback) {
       const password = this.form.getFieldValue('password')
       // console.log('value', value)
       if (value === undefined) {
@@ -188,7 +188,7 @@ export default {
       callback()
     },
 
-    handlePhoneCheck (rule, value, callback) {
+    handlePhoneCheck(rule, value, callback) {
       console.log('handlePhoneCheck, rule:', rule)
       console.log('handlePhoneCheck, value', value)
       console.log('handlePhoneCheck, callback', callback)
@@ -196,7 +196,7 @@ export default {
       callback()
     },
 
-    handlePasswordInputClick () {
+    handlePasswordInputClick() {
       if (!this.isMobile) {
         this.state.passwordLevelChecked = true
         return
@@ -204,7 +204,7 @@ export default {
       this.state.passwordLevelChecked = false
     },
 
-    handleSubmit () {
+    handleSubmit() {
       const { form: { validateFields }, state, $router } = this
       validateFields({ force: true }, (err, values) => {
         if (!err) {
@@ -214,7 +214,7 @@ export default {
       })
     },
 
-    getCaptcha (e) {
+    getCaptcha(e) {
       e.preventDefault()
       const { form: { validateFields }, state, $message, $notification } = this
 
@@ -238,7 +238,7 @@ export default {
               $notification['success']({
                 message: '提示',
                 description: '验证码获取成功，您的验证码为：' + res.result.captcha,
-                duration: 8
+                duration: 8,
               })
             }).catch(err => {
               setTimeout(hide, 1)
@@ -251,20 +251,20 @@ export default {
         }
       )
     },
-    requestFailed (err) {
+    requestFailed(err) {
       this.$notification['error']({
         message: '错误',
         description: ((err.response || {}).data || {}).message || '请求出现错误，请稍后再试',
-        duration: 4
+        duration: 4,
       })
       this.registerBtn = false
-    }
+    },
   },
   watch: {
-    'state.passwordLevel' (val) {
+    'state.passwordLevel'(val) {
       console.log(val)
-    }
-  }
+    },
+  },
 }
 </script>
 <style lang="less">

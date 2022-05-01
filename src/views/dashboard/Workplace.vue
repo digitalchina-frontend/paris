@@ -145,9 +145,9 @@ export default {
   name: 'Workplace',
   components: {
     PageHeaderWrapper,
-    Radar
+    Radar,
   },
-  data () {
+  data() {
     return {
       timeFix: timeFix(),
       avatar: '',
@@ -166,10 +166,10 @@ export default {
         tickLine: null,
         grid: {
           lineStyle: {
-            lineDash: null
+            lineDash: null,
           },
-          hideFirstLine: false
-        }
+          hideFirstLine: false,
+        },
       },
       axis2Opts: {
         dataKey: 'score',
@@ -178,16 +178,16 @@ export default {
         grid: {
           type: 'polygon',
           lineStyle: {
-            lineDash: null
-          }
-        }
+            lineDash: null,
+          },
+        },
       },
       scale: [
         {
           dataKey: 'score',
           min: 0,
-          max: 80
-        }
+          max: 80,
+        },
       ],
       axisData: [
         { item: '引用', a: 70, b: 30, c: 40 },
@@ -195,27 +195,27 @@ export default {
         { item: '产量', a: 50, b: 60, c: 40 },
         { item: '贡献', a: 40, b: 50, c: 40 },
         { item: '热度', a: 60, b: 70, c: 40 },
-        { item: '引用', a: 70, b: 50, c: 40 }
+        { item: '引用', a: 70, b: 50, c: 40 },
       ],
-      radarData: []
+      radarData: [],
     }
   },
   computed: {
     ...mapState({
       nickname: state => state.user.nickname,
-      welcome: state => state.user.welcome
+      welcome: state => state.user.welcome,
     }),
-    currentUser () {
+    currentUser() {
       return {
         name: 'Serati Ma',
-        avatar: 'https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png'
+        avatar: 'https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png',
       }
     },
-    userInfo () {
+    userInfo() {
       return this.$store.getters.userInfo
-    }
+    },
   },
-  created () {
+  created() {
     this.user = this.userInfo
     this.avatar = this.userInfo.avatar
 
@@ -227,30 +227,30 @@ export default {
       // console.log('workplace -> call getServiceList()', res)
     })
   },
-  mounted () {
+  mounted() {
     this.getProjects()
     this.getActivity()
     this.getTeams()
     this.initRadar()
   },
   methods: {
-    getProjects () {
+    getProjects() {
       this.$http.get('/list/search/projects').then(res => {
         this.projects = res.result && res.result.data
         this.loading = false
       })
     },
-    getActivity () {
+    getActivity() {
       this.$http.get('/workplace/activity').then(res => {
         this.activities = res.result
       })
     },
-    getTeams () {
+    getTeams() {
       this.$http.get('/workplace/teams').then(res => {
         this.teams = res.result
       })
     },
-    initRadar () {
+    initRadar() {
       this.radarLoading = true
 
       this.$http.get('/workplace/radar').then(res => {
@@ -259,14 +259,14 @@ export default {
           type: 'fold',
           fields: ['个人', '团队', '部门'],
           key: 'user',
-          value: 'score'
+          value: 'score',
         })
 
         this.radarData = dv.rows
         this.radarLoading = false
       })
-    }
-  }
+    },
+  },
 }
 </script>
 

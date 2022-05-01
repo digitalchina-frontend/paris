@@ -9,14 +9,14 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
-      data: []
+      data: [],
     }
   },
   methods: {
 
-  }
+  },
 }
 </script>
 

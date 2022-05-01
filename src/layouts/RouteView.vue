@@ -4,13 +4,13 @@ export default {
   props: {
     keepAlive: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
   },
-  data () {
+  data() {
     return {}
   },
-  render () {
+  render() {
     const { $route: { meta }, $store: { getters } } = this
     const inKeep = (
       <keep-alive>
@@ -27,6 +27,6 @@ export default {
       return notKeep
     }
     return this.keepAlive || getters.multiTab || meta.keepAlive ? inKeep : notKeep
-  }
+  },
 }
 </script>
