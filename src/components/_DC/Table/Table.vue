@@ -1,8 +1,10 @@
 <script>
+import T from 'ant-design-vue/es/table/Table'
+
 export default {
   name: 'DcTable',
-  props: {
-    data: {
+  props: Object.assign({}, T.props, {
+    dataSource: {
       type: Array,
       default: () => [],
     },
@@ -10,9 +12,28 @@ export default {
       type: Array,
       default: () => [],
     },
-  },
+  }),
   render() {
-    return <a-table columns={this.columns} data-source={this.data}></a-table>
+    const props = {}
+
+    Object.keys(T.props).forEach((k) => {
+      this[k] && (props[k] = this[k])
+      return props[k]
+    })
+
+    console.log('props:', props)
+    console.log('slots:', this.$slots)
+    console.log('scopedSlots:', this.$scopedSlots)
+
+    const table = (
+      <a-table {...{ props, scopedSlots: { ...this.$scopedSlots } }}>
+        {Object.keys(this.$slots).map((name) => (
+          <template slot={name}>{this.$slots[name]}</template>
+        ))}
+      </a-table>
+    )
+
+    return table
   },
 }
 </script>

@@ -1,13 +1,35 @@
 <template>
-  <dc-table :data="data" :columns="columns"></dc-table>
+  <dc-table :dataSource="data" :columns="columns">
+    <template v-slot:name="text">
+      <a >{{ text }}</a>
+    </template>
+    <span slot="customTitle"><a-icon type="smile-o" /> Name</span>
+    <span slot="tags" slot-scope="tags">
+      <a-tag
+        v-for="tag in tags"
+        :key="tag"
+        :color="tag === 'loser' ? 'volcano' : tag.length > 5 ? 'geekblue' : 'green'"
+      >
+        {{ tag.toUpperCase() }}
+      </a-tag>
+    </span>
+    <span slot="action" slot-scope="text, record">
+      <a>Invite 一 {{ record.name }}</a>
+      <a-divider type="vertical" />
+      <a>Delete</a>
+      <a-divider type="vertical" />
+      <a class="ant-dropdown-link"> More actions <a-icon type="down" /> </a>
+    </span>
+    </templateslot="name"></dc-table>
 </template>
 
 <script>
-import DcTable from '@/components/_DC/Table'
+import DcTable, { ColumnTitle as DcColumnTitle } from '@/components/_DC/Table'
 
 export default {
   components: {
     DcTable,
+    DcColumnTitle,
   },
   data() {
     return {
