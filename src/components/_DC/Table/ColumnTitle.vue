@@ -1,8 +1,3 @@
 <script>
-export default {
-  render() {
-    console.log('column title')
-    return <div></div>
-  },
-}
+export default {}
 </script>

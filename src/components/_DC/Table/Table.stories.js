@@ -46,7 +46,7 @@ Primary.args = {
       scopedSlots: { customRender: 'action' },
     },
   ],
-  data: [
+  dataSource: [
     {
       key: '1',
       name: 'John Brown',

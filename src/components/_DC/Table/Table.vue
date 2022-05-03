@@ -27,9 +27,10 @@ export default {
 
     const table = (
       <a-table {...{ props, scopedSlots: { ...this.$scopedSlots } }}>
-        {Object.keys(this.$slots).map((name) => (
-          <template slot={name}>{this.$slots[name]}</template>
-        ))}
+        {Object.keys(this.$slots).map((name) => {
+          console.log('name', this.$slots[name])
+          return <template slot={name}>{this.$slots[name]}</template>
+        })}
       </a-table>
     )
 
