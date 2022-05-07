@@ -27,10 +27,13 @@ export default {
 
     const table = (
       <a-table {...{ props, scopedSlots: { ...this.$scopedSlots } }}>
-        {Object.keys(this.$slots).map((name) => {
-          console.log('name', this.$slots[name])
-          return <template slot={name}>{this.$slots[name]}</template>
-        })}
+        {
+          // 非作用域插槽
+          Object.keys(this.$slots).map((name) => {
+            console.log('name', this.$slots[name])
+            return <template slot={name}>{this.$slots[name]}</template>
+          })
+        }
       </a-table>
     )
 
