@@ -40,5 +40,8 @@ export default {
   'menu.table.slots': '表格（插槽）',
   'menu.bar': '拔丝',
   'menu.bar.baz': '拔凉',
-  'menu.bar.baz.01': '新增',
+  'menu.bar.baz.01': '搜索',
+  'menu.foo': '拓跋',
+  'menu.foo.foz': '拓展',
+  'menu.foo.foz.02': '新增',
 }

@@ -51,8 +51,34 @@ export const asyncRouterMap = [
                 name: 'bar.baz.01',
                 // 异步组件参考 https://cn.vuejs.org/v2/guide/components-dynamic-async.html#%E5%BC%82%E6%AD%A5%E7%BB%84%E4%BB%B6
                 component: () => import(/* webpackChunkName: "bar" */ '@/templates/Search'),
-                props: require('@/modules/BAR/BAZ/bar.baz.01'),
+                props: require('@/modules/BAR/BAZ/bar.baz.01').table,
                 meta: { title: 'menu.bar.baz.01', keepAlive: true, permission: ['table'] },
+              },
+            ],
+          },
+        ],
+      },
+      {
+        path: '/foo',
+        name: 'foo',
+        component: RouteView,
+        redirect: '/foo/foz',
+        meta: { title: 'menu.foo', icon: 'table', permission: ['table'] },
+        children: [
+          {
+            path: '/foo/foz',
+            name: 'foo.foz',
+            redirect: '/foo/foz/02',
+            component: RouteView,
+            meta: { title: 'menu.foo.foz', icon: 'table', permission: ['table'] },
+            children: [
+              {
+                path: '/foo/foz/02',
+                name: 'foo.foz.02',
+                // 异步组件参考 https://cn.vuejs.org/v2/guide/components-dynamic-async.html#%E5%BC%82%E6%AD%A5%E7%BB%84%E4%BB%B6
+                component: () => import(/* webpackChunkName: "foo" */ '@/templates/Create'),
+                props: require('@/modules/FOO/FOZ/foo.foz.02').table,
+                meta: { title: 'menu.foo.foz.02', keepAlive: true, permission: ['table'] },
               },
             ],
           },
