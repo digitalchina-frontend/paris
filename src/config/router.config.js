@@ -15,6 +15,7 @@ export const asyncRouterMap = [
     meta: { title: 'menu.home' },
     redirect: '/table/slots',
     children: [
+      // table demo
       {
         path: '/table',
         name: 'table',
