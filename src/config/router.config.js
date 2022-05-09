@@ -49,7 +49,14 @@ export const asyncRouterMap = [
               {
                 path: '/bar/baz/01',
                 name: 'bar.baz.01',
-                component: () => import('@/templates/Create'),
+                // 异步组件参考 https://cn.vuejs.org/v2/guide/components-dynamic-async.html#%E5%BC%82%E6%AD%A5%E7%BB%84%E4%BB%B6
+                component: () => import(/* webpackChunkName: "bar" */ '@/templates/Create'),
+                props: {
+                  blah: {
+                    foo: 'foo is foo',
+                    bar: 'bar is bar',
+                  },
+                },
                 meta: { title: 'menu.bar.baz.01', keepAlive: true, permission: ['table'] },
               },
             ],
