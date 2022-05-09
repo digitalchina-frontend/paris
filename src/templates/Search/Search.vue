@@ -6,7 +6,7 @@ export default {
   functional: true,
   // JSX 语法
   render: (h, { props }) => (
-    <Renderless render={({ data, columns }) => <DcTable dataSource={data} columns={columns} />} />
+    <Renderless render={() => <DcTable dataSource={props.default.data} columns={props.default.columns} />} />
   ),
 }
 </script>
