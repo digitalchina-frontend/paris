@@ -31,6 +31,31 @@ export const asyncRouterMap = [
           },
         ],
       },
+      // module / page demo
+      {
+        path: '/bar',
+        name: 'bar',
+        component: RouteView,
+        redirect: '/bar/baz',
+        meta: { title: 'menu.bar', icon: 'table', permission: ['table'] },
+        children: [
+          {
+            path: '/bar/baz',
+            name: 'bar.baz',
+            redirect: '/bar/baz/01',
+            component: RouteView,
+            meta: { title: 'menu.bar.baz', icon: 'table', permission: ['table'] },
+            children: [
+              {
+                path: '/bar/baz/01',
+                name: 'bar.baz.01',
+                component: () => import('@/templates/Create'),
+                meta: { title: 'menu.bar.baz.01', keepAlive: true, permission: ['table'] },
+              },
+            ],
+          },
+        ],
+      },
       // // dashboard
       // {
       //   path: '/dashboard',
