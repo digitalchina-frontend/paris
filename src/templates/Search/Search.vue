@@ -2,10 +2,13 @@
 import DcTable from '@/components/_DC/Table'
 import Renderless from './Search.renderless.vue'
 
-// jsx 参考: https://github.com/vuejs/jsx-vue2
+// JSX 参考: https://github.com/vuejs/jsx-vue2
+/*
+  1. stateless (renderful) and renderless (stateful) 组件模式
+  2. 布局 和 物业代码
+*/
 export default {
   functional: true,
-  // JSX 语法
   render: (h, { props }) => {
     const scopedSlots = {
       name: (text) => <a>{text}</a>,
@@ -14,11 +17,15 @@ export default {
     return (
       <Renderless
         render={() => (
-          <DcTable dataSource={props.data} columns={props.columns} scopedSlots={scopedSlots}>
-            <template slot="customTitle">
-              <a-icon type="smile-o" /> Name
-            </template>
-          </DcTable>
+          <a-card bordered={false}>
+            <div class="table-page-search-wrapper">
+              <DcTable dataSource={props.data} columns={props.columns} scopedSlots={scopedSlots}>
+                <template slot="customTitle">
+                  <a-icon type="smile-o" /> Name
+                </template>
+              </DcTable>
+            </div>
+          </a-card>
         )}
       />
     )
