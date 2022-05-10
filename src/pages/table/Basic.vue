@@ -26,10 +26,15 @@ export default {
           key: 'textField',
           title: 'Text',
         },
+
         {
           dataIndex: 'customField',
           key: 'customField',
-          title: 'Custom',
+          title: () => (
+            <div>
+              <a-icon type="smile-o" /> Custom (Title | Column)
+            </div>
+          ),
           customRender: (text) => `爱好: ${text}`,
         },
         {
