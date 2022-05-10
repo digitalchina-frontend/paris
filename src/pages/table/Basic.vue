@@ -1,26 +1,17 @@
 <template>
-  <dc-table :dataSource="data" :columns="columns">
-    <template v-slot:name="text">
-      <a>{{ text }}</a>
-    </template>
-    <template v-slot:customTitle> <a-icon type="smile-o" /> Name </template>
-    <template v-slot:tags="tags">
-      <a-tag
-        v-for="tag in tags"
-        :key="tag"
-        :color="tag === 'loser' ? 'volcano' : tag.length > 5 ? 'geekblue' : 'green'"
-      >
-        {{ tag.toUpperCase() }}
-      </a-tag>
-    </template>
-    <template v-slot:action="text, record">
-      <a>Invite 一 {{ record.name }}</a>
-      <a-divider type="vertical" />
-      <a>Delete</a>
-      <a-divider type="vertical" />
-      <a class="ant-dropdown-link"> More actions <a-icon type="down" /> </a>
-    </template>
-  </dc-table>
+  <page-header-wrapper>
+    <a-card :bordered="false">
+      <dc-table :dataSource="data" :columns="columns">
+        <template v-slot:action="text, record">
+          <a>Invite 一 {{ record.name }}</a>
+          <a-divider type="vertical" />
+          <a>Delete</a>
+          <a-divider type="vertical" />
+          <a class="ant-dropdown-link"> More actions <a-icon type="down" /> </a>
+        </template>
+      </dc-table>
+    </a-card>
+  </page-header-wrapper>
 </template>
 
 <script>
@@ -44,6 +35,11 @@ export default {
           key: 'customField',
           title: 'Custom',
           customRender: (text) => `爱好: ${text}`,
+        },
+        {
+          key: 'action',
+          title: 'Action',
+          scopedSlots: { customRender: 'action' },
         },
         // {
         //   dataIndex: 'name',
@@ -75,18 +71,22 @@ export default {
       ],
       data: [
         {
+          key: '0',
           textField: '唐僧',
           customField: '唠叨',
         },
         {
+          key: '1',
           textField: '八戒',
           customField: '贪婪',
         },
         {
+          key: '2',
           textField: '悟空',
           customField: '较真',
         },
         {
+          key: '3',
           textField: '沙僧',
           customField: '勤勉',
         },

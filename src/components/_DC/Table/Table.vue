@@ -4,6 +4,10 @@ import T from 'ant-design-vue/es/table/Table'
 export default {
   name: 'DcTable',
   props: Object.assign({}, T.props, {
+    rowKey: {
+      type: [String, Function],
+      default: 'key',
+    },
     dataSource: {
       type: Array,
       default: () => [],
