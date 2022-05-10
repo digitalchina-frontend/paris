@@ -26,7 +26,6 @@ export default {
           key: 'textField',
           title: 'Text',
         },
-
         {
           dataIndex: 'customField',
           key: 'customField',
@@ -36,6 +35,17 @@ export default {
             </div>
           ),
           customRender: (text) => `爱好: ${text}`,
+        },
+        {
+          dataIndex: 'tags',
+          key: 'tags',
+          title: 'Tags',
+          customRender: (tags) =>
+            tags.map((tag) => (
+              <a-tag key={tag} color={tag === 'loser' ? 'volcano' : tag.length > 5 ? 'geekblue' : 'green'}>
+                {tag.toUpperCase()}
+              </a-tag>
+            )),
         },
         {
           title: 'Action',
@@ -53,76 +63,32 @@ export default {
             </div>
           ),
         },
-        // {
-        //   dataIndex: 'name',
-        //   key: 'name',
-        //   slots: { title: 'customTitle' },
-        //   scopedSlots: { customRender: 'name' },
-        // },
-        // {
-        //   title: 'Age',
-        //   dataIndex: 'age',
-        //   key: 'age',
-        // },
-        // {
-        //   title: 'Address',
-        //   dataIndex: 'address',
-        //   key: 'address',
-        // },
-        // {
-        //   title: 'Tags',
-        //   key: 'tags',
-        //   dataIndex: 'tags',
-        //   scopedSlots: { customRender: 'tags' },
-        // },
-        // {
-        //   title: 'Action',
-        //   key: 'action',
-        //   scopedSlots: { customRender: 'action' },
-        // },
       ],
       data: [
         {
           key: '0',
           textField: '唐僧',
           customField: '唠叨',
+          tags: ['cool'],
         },
         {
           key: '1',
           textField: '八戒',
           customField: '贪婪',
+          tags: ['loser'],
         },
         {
           key: '2',
           textField: '悟空',
           customField: '较真',
+          tags: ['key person'],
         },
         {
           key: '3',
           textField: '沙僧',
           customField: '勤勉',
+          tags: ['winner'],
         },
-        // {
-        //   key: '1',
-        //   name: 'John Brown',
-        //   age: 32,
-        //   address: 'New York No. 1 Lake Park',
-        //   tags: ['nice', 'developer'],
-        // },
-        // {
-        //   key: '2',
-        //   name: 'Jim Green',
-        //   age: 42,
-        //   address: 'London No. 1 Lake Park',
-        //   tags: ['loser'],
-        // },
-        // {
-        //   key: '3',
-        //   name: 'Joe Black',
-        //   age: 32,
-        //   address: 'Sidney No. 1 Lake Park',
-        //   tags: ['cool', 'teacher'],
-        // },
       ],
     }
   },
