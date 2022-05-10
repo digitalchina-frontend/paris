@@ -39,6 +39,12 @@ export default {
           key: 'textField',
           title: 'Text',
         },
+        {
+          dataIndex: 'customField',
+          key: 'customField',
+          title: 'Custom',
+          customRender: (text) => `爱好: ${text}`,
+        },
         // {
         //   dataIndex: 'name',
         //   key: 'name',
@@ -70,15 +76,19 @@ export default {
       data: [
         {
           textField: '唐僧',
+          customField: '唠叨',
         },
         {
           textField: '八戒',
+          customField: '贪婪',
         },
         {
           textField: '悟空',
+          customField: '较真',
         },
         {
           textField: '沙僧',
+          customField: '勤勉',
         },
         // {
         //   key: '1',
