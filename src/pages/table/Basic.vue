@@ -1,26 +1,22 @@
 <template>
   <page-header-wrapper>
     <a-card :bordered="false">
-      <dc-table :dataSource="data" :columns="columns">
-        <template v-slot:action="text, record">
-          <a>Invite 一 {{ record.name }}</a>
-          <a-divider type="vertical" />
-          <a>Delete</a>
-          <a-divider type="vertical" />
-          <a class="ant-dropdown-link"> More actions <a-icon type="down" /> </a>
-        </template>
-      </dc-table>
+      <dc-table :dataSource="data" :columns="columns"> </dc-table>
     </a-card>
   </page-header-wrapper>
 </template>
 
 <script>
-import DcTable, { ColumnTitle as DcColumnTitle } from '@/components/_DC/Table'
+import DcTable from '@/components/_DC/Table'
 
 export default {
   components: {
     DcTable,
-    DcColumnTitle,
+  },
+  methods: {
+    actionHandler(record) {
+      alert(JSON.stringify(record))
+    },
   },
   data() {
     return {
@@ -37,8 +33,21 @@ export default {
           customRender: (text) => `爱好: ${text}`,
         },
         {
+          key: 'action',
           title: 'Action',
-          scopedSlots: { customRender: 'action' },
+          // _ aka text 字段 为空
+          customRender: (_, record) => (
+            <div>
+              <a vOn:click={() => this.actionHandler(record)}>{record.textField}</a>
+              <a-divider type="vertical" />
+              <a vOn:click={() => this.actionHandler(record)}>{record.customField}</a>
+              <a-divider type="vertical" />
+              <a class="ant-dropdown-link">
+                {' '}
+                更多操作 <a-icon type="down" />{' '}
+              </a>
+            </div>
+          ),
         },
         // {
         //   dataIndex: 'name',
