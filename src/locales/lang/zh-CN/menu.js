@@ -37,7 +37,7 @@ export default {
   'menu.account.trigger': '触发报错',
   'menu.account.logout': '退出登录',
   'menu.table': '表格',
-  'menu.table.slots': '表格（插槽）',
+  'menu.table.basic': '基础',
   'menu.bar': '拔丝',
   'menu.bar.baz': '拔凉',
   'menu.bar.baz.01': '搜索',

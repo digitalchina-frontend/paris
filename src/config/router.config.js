@@ -13,21 +13,21 @@ export const asyncRouterMap = [
     name: 'index',
     component: BasicLayout,
     meta: { title: 'menu.home' },
-    redirect: '/table/slots',
+    redirect: '/table/basic',
     children: [
       // table demo
       {
         path: '/table',
         name: 'table',
         component: RouteView,
-        redirect: '/table/slots',
+        redirect: '/table/basic',
         meta: { title: 'menu.table', icon: 'table', permission: ['table'] },
         children: [
           {
-            path: '/table/slots',
-            name: 'Slots',
-            component: () => import('@/pages/table/basic/Slots'),
-            meta: { title: 'menu.table.slots', keepAlive: true, permission: ['table'] },
+            path: '/table/basic',
+            name: 'basic',
+            component: () => import('@/pages/table/Basic'),
+            meta: { title: 'menu.table.basic', keepAlive: true, permission: ['table'] },
           },
         ],
       },
