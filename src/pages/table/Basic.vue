@@ -33,7 +33,6 @@ export default {
           customRender: (text) => `爱好: ${text}`,
         },
         {
-          key: 'action',
           title: 'Action',
           // _ aka text 字段 为空
           customRender: (_, record) => (
