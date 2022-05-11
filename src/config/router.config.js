@@ -26,8 +26,14 @@ export const asyncRouterMap = [
           {
             path: '/table/basic',
             name: 'basic',
-            component: () => import('@/pages/table/Basic'),
+            component: () => import(/* webpackChunkName: "table" */ '@/pages/table/Basic'),
             meta: { title: 'menu.table.basic', keepAlive: true, permission: ['table'] },
+          },
+          {
+            path: '/table/filter',
+            name: 'filter',
+            component: () => import(/* webpackChunkName: "table" */ '@/pages/table/Filter'),
+            meta: { title: 'menu.table.filter', keepAlive: true, permission: ['table'] },
           },
         ],
       },
