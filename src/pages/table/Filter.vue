@@ -2,7 +2,7 @@
   <page-header-wrapper>
     <a-card :bordered="false">
       <div class="table-page-search-wrapper">
-        <dc-form :items="items"></dc-form>
+        <dc-form :items="items" name="filter-form"></dc-form>
       </div>
       <dc-table :dataSource="data" :columns="columns"> </dc-table>
     </a-card>
