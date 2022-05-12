@@ -14,12 +14,13 @@ export default {
       name: (text) => <a>{text}</a>,
       customTitle: () => <a-icon type="smile-o" />,
     }
+    const { data, columns } = props.default
     return (
       <Renderless
         render={() => (
           <a-card bordered={false}>
             <div class="table-page-search-wrapper">
-              <DcTable dataSource={props.data} columns={props.columns} scopedSlots={scopedSlots}>
+              <DcTable dataSource={data} columns={columns} scopedSlots={scopedSlots}>
                 <template slot="customTitle">
                   <a-icon type="smile-o" /> Name
                 </template>
