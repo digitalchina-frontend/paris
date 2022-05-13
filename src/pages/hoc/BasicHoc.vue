@@ -5,6 +5,10 @@
     1. 代码复用
       1.1 一部分代码是模板可以复用
       1.2 一部分代码是可配置的
+
+    代码参考：
+      * https://segmentfault.com/p/1210000012743259/read
+      * https://medium.com/bethink-pl/higher-order-components-in-vue-js-a79951ac9176
 */
 import Vue from 'vue'
 import Foo from './Foo.vue'
