@@ -48,7 +48,7 @@ export const asyncRouterMap = [
           {
             path: '/hoc/basic',
             name: 'hoc.basic', // 注意 name 是不可以重名的
-            component: () => import(/* webpackChunkName: "table" */ '@/pages/hoc/BasicHoc'),
+            component: () => import(/* webpackChunkName: "hoc" */ '@/pages/hoc/BasicHoc'),
             meta: { title: 'menu.hoc.basic', keepAlive: true, permission: ['table'] },
           },
         ],
