@@ -10,7 +10,7 @@
 import DcTable from '@/components/_DC/Table'
 
 export default {
-  props: ['data', 'columns'],
+  props: ['columns', 'data'],
   components: {
     DcTable,
   },

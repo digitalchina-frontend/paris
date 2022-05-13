@@ -162,7 +162,7 @@ export const asyncRouterMap = [
       //     },
       //   ],
       // },
-      // // list
+      // list
       // {
       //   path: '/list',
       //   name: 'list',

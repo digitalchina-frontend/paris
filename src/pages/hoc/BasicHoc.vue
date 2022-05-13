@@ -12,21 +12,27 @@
 */
 import Vue from 'vue'
 import Foo from './Foo.vue'
+import { getList } from '@/services/xhr/demo'
 
 const hoc = (component) => {
   return Vue.component('withHoc', {
     props: component.props,
     data() {
-      return {}
+      return {
+        tableData: [],
+      }
     },
-    methods: {
-      handleChange() {},
+    methods: {},
+    created() {
+      getList({}).then((res) => {
+        this.tableData = res.result.data
+      })
     },
     mounted() {},
     beforeDestroy() {},
     render(createElement) {
       return createElement(component, {
-        props: this.$props,
+        props: { ...this.$props, data: this.tableData },
         on: this.$listeners,
       })
     },
