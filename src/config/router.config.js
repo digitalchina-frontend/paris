@@ -13,8 +13,25 @@ export const asyncRouterMap = [
     name: 'index',
     component: BasicLayout,
     meta: { title: 'menu.home' },
-    redirect: '/table/basic',
+    redirect: '/hoc/basic',
     children: [
+      // hoc demo
+      {
+        path: '/hoc',
+        name: 'hoc',
+        component: RouteView,
+        redirect: '/hoc/basic',
+        meta: { title: 'menu.hoc', icon: 'table', permission: ['table'] },
+        children: [
+          {
+            path: '/hoc/basic',
+            name: 'hoc.basic', // 注意 name 是不可以重名的
+            component: () => import(/* webpackChunkName: "table" */ '@/pages/hoc/BasicHoc'),
+            props: require('@/pages/hoc/foo.bar.baz.vue'),
+            meta: { title: 'menu.hoc.basic', keepAlive: true, permission: ['table'] },
+          },
+        ],
+      },
       // table demo
       {
         path: '/table',
@@ -34,22 +51,6 @@ export const asyncRouterMap = [
             name: 'filter',
             component: () => import(/* webpackChunkName: "table" */ '@/pages/table/Filter'),
             meta: { title: 'menu.table.filter', keepAlive: true, permission: ['table'] },
-          },
-        ],
-      },
-      // hoc demo
-      {
-        path: '/hoc',
-        name: 'hoc',
-        component: RouteView,
-        redirect: '/hoc/basic',
-        meta: { title: 'menu.hoc', icon: 'table', permission: ['table'] },
-        children: [
-          {
-            path: '/hoc/basic',
-            name: 'hoc.basic', // 注意 name 是不可以重名的
-            component: () => import(/* webpackChunkName: "hoc" */ '@/pages/hoc/BasicHoc'),
-            meta: { title: 'menu.hoc.basic', keepAlive: true, permission: ['table'] },
           },
         ],
       },
