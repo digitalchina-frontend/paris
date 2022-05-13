@@ -37,6 +37,22 @@ export const asyncRouterMap = [
           },
         ],
       },
+      // hoc demo
+      {
+        path: '/hoc',
+        name: 'hoc',
+        component: RouteView,
+        redirect: '/hoc/basic',
+        meta: { title: 'menu.hoc', icon: 'table', permission: ['table'] },
+        children: [
+          {
+            path: '/hoc/basic',
+            name: 'hoc.basic', // 注意 name 是不可以重名的
+            component: () => import(/* webpackChunkName: "table" */ '@/pages/hoc/BasicHoc'),
+            meta: { title: 'menu.hoc.basic', keepAlive: true, permission: ['table'] },
+          },
+        ],
+      },
       // module / page demo
       {
         path: '/bar',

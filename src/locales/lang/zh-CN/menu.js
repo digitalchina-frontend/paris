@@ -39,6 +39,8 @@ export default {
   'menu.table': '表格',
   'menu.table.basic': '基础',
   'menu.table.filter': '过滤',
+  'menu.hoc': 'HOC',
+  'menu.hoc.basic': '基础',
   'menu.bar': '拔丝',
   'menu.bar.baz': '拔凉',
   'menu.bar.baz.01': '搜索',
