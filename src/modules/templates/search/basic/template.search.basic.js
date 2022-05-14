@@ -4,6 +4,20 @@
 export default {
   data() {
     return {
+      items: [
+        {
+          type: 'Input',
+          label: '文本字段1',
+          name: 'text1',
+          rules: [
+            {
+              required: true,
+              message: '请输入文本字段1',
+            },
+          ],
+          placeholder: '文本字段1占位符',
+        },
+      ],
       columns: [
         {
           dataIndex: 'name',
@@ -31,29 +45,6 @@ export default {
           title: 'Action',
           key: 'action',
           scopedSlots: { customRender: 'action' },
-        },
-      ],
-      data: [
-        {
-          key: '1',
-          name: 'John Brown',
-          age: 32,
-          address: 'New York No. 1 Lake Park',
-          tags: ['nice', 'developer'],
-        },
-        {
-          key: '2',
-          name: 'Jim Green',
-          age: 42,
-          address: 'London No. 1 Lake Park',
-          tags: ['loser'],
-        },
-        {
-          key: '3',
-          name: 'Joe Black',
-          age: 32,
-          address: 'Sidney No. 1 Lake Park',
-          tags: ['cool', 'teacher'],
         },
       ],
     }
