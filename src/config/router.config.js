@@ -54,59 +54,51 @@ export const asyncRouterMap = [
           },
         ],
       },
-      // module / page demo
+      // page / template demo
       {
-        path: '/bar',
-        name: 'bar',
+        path: '/template',
+        name: 'template',
         component: RouteView,
-        redirect: '/bar/baz',
-        meta: { title: 'menu.bar', icon: 'table', permission: ['table'] },
+        redirect: '/template/search',
+        meta: { title: 'menu.template', icon: 'table', permission: ['table'] },
         children: [
           {
-            path: '/bar/baz',
-            name: 'bar.baz',
-            redirect: '/bar/baz/01',
+            path: '/template/search',
+            name: 'template.search',
+            redirect: '/template/search/basic',
             component: RouteView,
-            meta: { title: 'menu.bar.baz', icon: 'table', permission: ['table'] },
+            meta: { title: 'menu.template.search', icon: 'table', permission: ['table'] },
             children: [
               {
-                path: '/bar/baz/01',
-                name: 'bar.baz.01',
+                path: '/template/search/basic',
+                name: 'template.search.basic',
                 // 异步组件参考 https://cn.vuejs.org/v2/guide/components-dynamic-async.html#%E5%BC%82%E6%AD%A5%E7%BB%84%E4%BB%B6
-                component: () => import(/* webpackChunkName: "bar" */ '@/templates/Search'),
-                props: require('@/modules/BAR/BAZ/bar.baz.01'),
-                meta: { title: 'menu.bar.baz.01', keepAlive: true, permission: ['table'] },
+                component: () => import(/* webpackChunkName: "templates" */ '@/templates/Search'),
+                props: require('@/modules/templates/search/basic'),
+                meta: { title: 'menu.template.search.basic', keepAlive: true, permission: ['table'] },
+              },
+            ],
+          },
+          {
+            path: '/template/form',
+            name: 'template.form',
+            redirect: '/template/form/basic',
+            component: RouteView,
+            meta: { title: 'menu.template.form', icon: 'table', permission: ['table'] },
+            children: [
+              {
+                path: '/template/form/basic',
+                name: 'template.form.basic',
+                // 异步组件参考 https://cn.vuejs.org/v2/guide/components-dynamic-async.html#%E5%BC%82%E6%AD%A5%E7%BB%84%E4%BB%B6
+                component: () => import(/* webpackChunkName: "templates" */ '@/templates/Create'),
+                props: require('@/modules/templates/form/basic'),
+                meta: { title: 'menu.template.form.basic', keepAlive: true, permission: ['table'] },
               },
             ],
           },
         ],
       },
-      {
-        path: '/foo',
-        name: 'foo',
-        component: RouteView,
-        redirect: '/foo/foz',
-        meta: { title: 'menu.foo', icon: 'table', permission: ['table'] },
-        children: [
-          {
-            path: '/foo/foz',
-            name: 'foo.foz',
-            redirect: '/foo/foz/02',
-            component: RouteView,
-            meta: { title: 'menu.foo.foz', icon: 'table', permission: ['table'] },
-            children: [
-              {
-                path: '/foo/foz/02',
-                name: 'foo.foz.02',
-                // 异步组件参考 https://cn.vuejs.org/v2/guide/components-dynamic-async.html#%E5%BC%82%E6%AD%A5%E7%BB%84%E4%BB%B6
-                component: () => import(/* webpackChunkName: "foo" */ '@/templates/Create'),
-                props: require('@/modules/FOO/FOZ/foo.foz.02'),
-                meta: { title: 'menu.foo.foz.02', keepAlive: true, permission: ['table'] },
-              },
-            ],
-          },
-        ],
-      },
+
       // // dashboard
       // {
       //   path: '/dashboard',
