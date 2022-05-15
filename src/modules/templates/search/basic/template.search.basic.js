@@ -22,8 +22,11 @@ export default {
         {
           dataIndex: 'name',
           key: 'name',
-          slots: { title: 'customTitle' },
-          scopedSlots: { customRender: 'name' },
+          title: () => (
+            <div>
+              <a-icon type="smile-o" /> Custom (Title | Column)
+            </div>
+          ),
         },
         {
           title: 'Age',

@@ -16,10 +16,25 @@ import Render from './Search.render.vue'
 import Renderless from './Search.renderless'
 
 export default {
-  functional: true,
-  render(h, { props }) {
+  render(h) {
+    console.log('$props', this.$props)
+    console.log('$attrs', this.$attrs)
+
+    // debugger
     // 这里的实现依赖于 路由组件的接口设计 https://v3.router.vuejs.org/zh/guide/essentials/passing-props.html#%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%BC%8F
-    return h(Renderless(Render), { props: props.default.data() })
+    return h(Renderless(Render), { props: this.$attrs.default.data() })
   },
 }
+
+// export default {
+//   // functional: true,
+//   render(h) {
+//     console.log('$props', this.$props)
+//     console.log('$attrs', this.$attrs)
+
+//     // debugger
+//     // 这里的实现依赖于 路由组件的接口设计 https://v3.router.vuejs.org/zh/guide/essentials/passing-props.html#%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%BC%8F
+//     return h(Renderless(Render), { props: this.$attrs.default.data() })
+//   },
+// }
 </script>

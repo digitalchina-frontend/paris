@@ -25,9 +25,9 @@ export default {
       return props[k]
     })
 
-    console.log('props:', props)
-    console.log('slots:', this.$slots)
-    console.log('scopedSlots:', this.$scopedSlots)
+    // console.log('props:', props)
+    // console.log('slots:', this.$slots)
+    // console.log('scopedSlots:', this.$scopedSlots)
 
     const table = (
       <a-table {...{ props, scopedSlots: { ...this.$scopedSlots } }}>
