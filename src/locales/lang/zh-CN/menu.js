@@ -47,4 +47,8 @@ export default {
   'menu.template.search.basic': '基础',
   'menu.template.form': '表单',
   'menu.template.form.basic': '基础',
+  // 19计科教学
+  'menu.example': '教学',
+  'menu.example.foo': '表格',
+  'menu.example.bar': '表单',
 }

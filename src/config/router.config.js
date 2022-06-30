@@ -15,6 +15,28 @@ export const asyncRouterMap = [
     meta: { title: 'menu.home' },
     redirect: '/hoc/basic',
     children: [
+      // example
+      {
+        path: '/example',
+        name: 'example',
+        redirect: '/example/foo',
+        component: RouteView,
+        meta: { title: 'menu.example', keepAlive: true, icon: 'table', permission: ['dashboard'] },
+        children: [
+          {
+            path: '/example/foo',
+            name: 'example.foo',
+            component: () => import('@/views/example/Foo'),
+            meta: { title: 'menu.example.foo', keepAlive: true, permission: ['dashboard'] },
+          },
+          {
+            path: '/example/bar',
+            name: 'example.bar',
+            component: () => import('@/views/example/Bar'),
+            meta: { title: 'menu.example.bar', keepAlive: true, permission: ['dashboard'] },
+          },
+        ],
+      },
       // hoc demo
       {
         path: '/hoc',
