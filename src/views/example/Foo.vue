@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { getList } from '@/services/xhr/demo'
+import { getFoo } from '@/services/xhr/demo'
 
 const columns = [
   {
@@ -50,7 +50,7 @@ export default {
     // 嵌套式的结构语法
     const {
       result: { data },
-    } = await getList()
+    } = await getFoo()
     this.data = data
   },
 }

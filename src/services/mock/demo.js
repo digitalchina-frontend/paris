@@ -1,5 +1,5 @@
 import Mock from 'mockjs2'
-import { builder, getQueryParameters } from '@/mock/util'
+import { builder, getQueryParameters, getBody } from '@/mock/util'
 
 const totalCount = 5701
 
@@ -42,4 +42,19 @@ const list = (options) => {
   })
 }
 
+const create = (options) => {
+  const body = getBody(options)
+  console.log('mock 服务接收到的 Bar 表单提交值:', body)
+  return builder(
+    {
+      id: Mock.mock('@guid'),
+      ...body,
+    },
+    '',
+    200,
+    { 'Custom-Header': Mock.mock('@guid') }
+  )
+}
+
 Mock.mock(/\/demo\/list/, 'get', list)
+Mock.mock(/\/demo\/create/, 'post', create)
