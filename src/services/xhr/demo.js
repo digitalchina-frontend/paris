@@ -7,19 +7,18 @@ const api = {
 
 export default api
 
-export function getFoo(parameter) {
+export function getFoo(params) {
   return request({
     url: api.list,
     method: 'get',
-    params: parameter,
+    params,
   })
 }
 
-export function postBar(parameter) {
-  debugger
+export function postBar(data) {
   return request({
     url: api.create,
     method: 'post',
-    params: parameter,
+    data,
   })
 }

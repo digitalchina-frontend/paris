@@ -44,15 +44,13 @@ export default {
           console.log('有效表单提交值: ', values)
           try {
             const {
-              result: {
-                data: { id },
-              },
+              result: { id },
             } = await postBar(values)
             this.openNotification(`提交成功，id: ${id}`)
             this.form.resetFields()
           } catch (error) {
-            console.error('提交失败: ', error)
             this.openNotification('提交失败', 'error')
+            console.error('提交失败: ', error)
           } finally {
           }
         }

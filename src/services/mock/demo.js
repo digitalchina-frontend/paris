@@ -45,13 +45,28 @@ const list = (options) => {
 const create = (options) => {
   const body = getBody(options)
   console.log('mock 服务接收到的 Bar 表单提交值:', body)
+
+  // 模拟数据库创建失败
+  const randomNumber = Math.random() // (inclusive of 0, but not 1)
+  const success = randomNumber > 0.4
+
+  if (success) {
+    return builder(
+      {
+        id: Mock.mock('@guid'),
+        ...body,
+      },
+      '',
+      200,
+      { 'Custom-Header': Mock.mock('@guid') }
+    )
+  }
   return builder(
     {
-      id: Mock.mock('@guid'),
       ...body,
     },
     '',
-    200,
+    500,
     { 'Custom-Header': Mock.mock('@guid') }
   )
 }
