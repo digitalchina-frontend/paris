@@ -11,6 +11,7 @@ const userApi = {
   // get my info
   UserInfo: '/user/info',
   UserMenu: '/user/nav',
+  OdooLogin: '/web/session/authenticate',
 }
 
 /**
@@ -29,6 +30,23 @@ export function login(parameter) {
     url: userApi.Login,
     method: 'post',
     data: parameter,
+  })
+}
+
+const data = {
+  jsonrpc: '2.0',
+  params: {
+    login: 'admin',
+    password: 'admin',
+    db: 'hg01',
+  },
+}
+
+export function OdooLogin(parameter) {
+  return request({
+    url: userApi.OdooLogin,
+    method: 'put',
+    data,
   })
 }
 

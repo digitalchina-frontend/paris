@@ -54,7 +54,7 @@ const vueConfig = {
     externals: isProd ? assetsCDN.externals : {},
   },
 
-  chainWebpack: config => {
+  chainWebpack: (config) => {
     config.resolve.alias.set('@$', resolve('src'))
 
     const svgRule = config.module.rule('svg')
@@ -77,7 +77,7 @@ const vueConfig = {
     // if prod is on
     // assets require on cdn
     if (isProd) {
-      config.plugin('html').tap(args => {
+      config.plugin('html').tap((args) => {
         args[0].cdn = assetsCDN
         return args
       })
@@ -104,13 +104,15 @@ const vueConfig = {
     // development server port 8000
     port: 8000,
     // If you want to turn on the proxy, please remove the mockjs /src/main.jsL11
-    // proxy: {
-    //   '/api': {
-    //     target: 'https://mock.ihx.me/mock/5baf3052f7da7e07e04a5116/antd-pro',
-    //     ws: false,
-    //     changeOrigin: true
-    //   }
-    // }
+    proxy: {
+      '/api': {
+        target: process.env.VUE_APP_ODOO_SERVER_URL,
+        ws: false,
+        changeOrigin: true,
+        logLevel: 'debug',
+        pathRewrite: { '^/api': '' },
+      },
+    },
   },
 
   // disable source map in production
