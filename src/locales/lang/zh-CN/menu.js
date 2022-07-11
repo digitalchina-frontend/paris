@@ -51,4 +51,5 @@ export default {
   'menu.example': '教学',
   'menu.example.foo': '表格',
   'menu.example.bar': '表单',
+  'menu.example.odoo.list': 'Odoo表格',
 }

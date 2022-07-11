@@ -35,6 +35,12 @@ export const asyncRouterMap = [
             component: () => import('@/views/example/Bar'),
             meta: { title: 'menu.example.bar', keepAlive: true, permission: ['dashboard'] },
           },
+          {
+            path: '/odoo/list',
+            name: 'example.odoo.list',
+            component: () => import('@/views/example/OdooList'),
+            meta: { title: 'menu.example.odoo.list', keepAlive: true, permission: ['dashboard'] },
+          },
         ],
       },
       // hoc demo
