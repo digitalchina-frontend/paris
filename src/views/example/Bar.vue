@@ -30,8 +30,16 @@ export default {
   data() {
     return {
       formLayout: 'horizontal',
-      form: this.$form.createForm(this, { name: 'bar' }),
+      form: this.$form.createForm(this, { name: 'bar' }), // async
     }
+  },
+  created() {
+    this.$nextTick(() => {
+      this.form.setFieldsValue({
+        note: 'hello',
+        gender: 'female',
+      })
+    })
   },
   methods: {
     /*
