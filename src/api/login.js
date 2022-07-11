@@ -1,4 +1,5 @@
 import request from '@/utils/request'
+import settings from '@/config/defaultSettings'
 
 const userApi = {
   Login: '/auth/login',
@@ -38,7 +39,7 @@ const data = {
   params: {
     login: 'admin',
     password: 'admin',
-    db: 'hg01',
+    db: settings.database,
   },
 }
 

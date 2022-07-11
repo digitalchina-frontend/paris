@@ -27,4 +27,5 @@ export default {
   pwa: false,
   iconfontUrl: '',
   production: process.env.NODE_ENV === 'production' && process.env.VUE_APP_PREVIEW !== 'true',
+  database: process.env.VUE_APP_ODOO_DATABASE,
 }
