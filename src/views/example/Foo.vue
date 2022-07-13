@@ -1,7 +1,14 @@
 <template>
   <page-header-wrapper>
     <a-card :bordered="false">
-      <a-table :columns="columns" :data-source="data"> </a-table>
+      <a-table :columns="columns" :data-source="data">
+        <span slot="tags" slot-scope="text, record">
+          <router-link :to="{ name: 'example.bar' }">
+            {{ text }} |
+            {{ record.age }}
+          </router-link>
+        </span>
+      </a-table>
     </a-card>
   </page-header-wrapper>
 </template>
@@ -28,6 +35,7 @@ const columns = [
     title: 'Tags',
     key: 'tags',
     dataIndex: 'tags',
+    scopedSlots: { customRender: 'tags' },
   },
   // {
   //   title: 'Action',
