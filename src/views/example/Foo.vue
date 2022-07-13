@@ -13,8 +13,6 @@ const columns = [
   {
     dataIndex: 'name',
     key: 'name',
-    slots: { title: 'customTitle' },
-    scopedSlots: { customRender: 'name' },
   },
   {
     title: 'Age',
@@ -30,13 +28,11 @@ const columns = [
     title: 'Tags',
     key: 'tags',
     dataIndex: 'tags',
-    scopedSlots: { customRender: 'tags' },
   },
-  {
-    title: 'Action',
-    key: 'action',
-    scopedSlots: { customRender: 'action' },
-  },
+  // {
+  //   title: 'Action',
+  //   key: 'action',
+  // },
 ]
 
 export default {
